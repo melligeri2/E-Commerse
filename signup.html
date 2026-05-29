@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register form</title>
+    <link rel="stylesheet" href="signup.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT PANEL -->
+        <div class="left">
+            
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right">
+            <h2>Register</h2>
+
+            <form id="myform">
+
+                <input type="text" placeholder="Enter user name" id="username">
+                <p id="userError" class="err"></p>
+
+                <input type="email" placeholder="Enter email" id="email">
+                <p id="emailError" class="err"></p>
+
+                <input type="password" placeholder="Enter password" id="password">
+                <p id="pwdError" class="err"></p>
+
+                <input type="password" placeholder="Confirm password" id="confirmpassword">
+                <p id="confpwdError" class="err"></p>
+
+                <button>Sign Up</button>
+                <span>
+                    <input type="checkbox"> I already have an account
+                    <a href="signin.html">Sign In</a>
+                </span>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="signup.js"></script>
+
+</body>
+
+</html>

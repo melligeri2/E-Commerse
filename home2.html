@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-page</title>
+    <link rel="stylesheet" href="home2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+    <nav>
+    <a class="logo" onclick="showPage('home')">
+    <img src="pslogo2.png" alt="PS Logo" class="logo-img">
+    <div class="logo-text">
+        <h3>PS</h3>
+        <p>Ecommerce</p>
+    </div>
+</a>
+</a>
+    <ul class="nav-links">
+        <li><a onclick="showPage('home')" class="active" data-page="home">Home</a></li>
+        <li><a onclick="showPage('shop')" data-page="shop">Shop</a></li>
+        <li><a onclick="showPage('about')" data-page="about">About</a></li>
+        <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+    </ul>
+    <div class="nav-search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Search products…" id="search-input">
+    </div>
+    <div class="nav-right">
+        <div id="wishlist-icon">
+            <i class="ri-heart-line"></i>
+            <span class="wishlist-count">0</span>
+        </div>
+        <div id="cart-icon">
+            <i class="fa-solid fa-bag-shopping bag"></i>
+            <span class="cart-item-count">0</span>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Search products…" id="mobile-search-input">
+    </div>
+    <a onclick="showPage('home');closeMobileMenu()">Home</a>
+    <a onclick="showPage('shop');closeMobileMenu()">Shop</a>
+    <a onclick="showPage('about');closeMobileMenu()">About</a>
+    <a onclick="showPage('contact');closeMobileMenu()">Contact</a>
+</div>
+
+<!-- ══════════ WISHLIST SIDEBAR ══════════ -->
+<div class="wishlist-sidebar" id="wishlist-sidebar">
+    <i class="ri-close-line close-wishlist" id="close-wishlist"></i>
+    <h2 class="wishlist-title">❤ Wishlist</h2>
+    <div class="wishlist-content" id="wishlist-content">
+        <div class="wishlist-empty">
+            <i class="ri-heart-line"></i>
+            <p>Your wishlist is empty.<br>Tap the heart on any product!</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════ CART SIDEBAR ══════════ -->
+<div class="cart-items">
+    <i class="ri-close-line close-cart"></i>
+    <h2 class="cart-title">Your Cart</h2>
+    <div class="cart-content"></div>
+    <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">$0</div>
+    </div>
+    <div class="cart-buy-btn">
+        <button class="btn-buy">Buy now</button>
+    </div>
+</div>
+
+<!-- ══════════ PAGE: HOME ══════════ -->
+<div class="page active" id="page-home">
+    <section class="shop">
+        <h1 class="shop-title">Featured Products</h1>
+        <div class="product-content" id="home-products">
+            <!-- products injected by JS -->
+        </div>
+    </section>
+</div>
+
+<!-- ══════════ PAGE: SHOP ══════════ -->
+<div class="page" id="page-shop">
+    <div class="shop-page">
+        <div class="shop-page-header">
+            <h1>All Products</h1>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="lehenga">Lehenga</button>
+                <button class="filter-btn" data-filter="kids">Kids</button>
+                <button class="filter-btn" data-filter="party">Party</button>
+            </div>
+            <select class="sort-select" id="sort-select">
+                <option value="default">Sort: Default</option>
+                <option value="low-high">Price: Low → High</option>
+                <option value="high-low">Price: High → Low</option>
+            </select>
+        </div>
+        <div class="product-content" id="shop-products">
+            <!-- products injected by JS -->
+        </div>
+    </div>
+</div>
+
+<!-- ══════════ PAGE: ABOUT ══════════ -->
+<div class="page" id="page-about">
+    <div class="about-hero">
+        <h1>About Us</h1>
+        <p>We bring the finest ethnic fashion to your doorstep — curated with love, delivered with care.</p>
+    </div>
+    <div class="about-section">
+        <h2>Our Story</h2>
+        <p>Founded in 2026, Ecommerce started as a small boutique with a big dream: to make authentic Indian ethnic wear accessible to everyone. What began as a tiny collection of handpicked lehengas has grown into a curated catalogue of hundreds of designs — from everyday casual to grand celebration pieces.</p>
+        <p>We work directly with skilled artisans and weavers across Rajasthan, Gujarat, and West Bengal to bring you authentic craftsmanship at fair prices. Every stitch tells a story, and we're honoured to help you write yours.</p>
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="ri-heart-3-line"></i>
+                <h3>Made with Love</h3>
+                <p>Every piece is handpicked by our fashion experts to ensure quality, comfort, and style.</p>
+            </div>
+            <div class="about-card">
+                <i class="ri-truck-line"></i>
+                <h3>Fast Delivery</h3>
+                <p>We deliver across India within 3–5 business days, with real-time order tracking.</p>
+            </div>
+            <div class="about-card">
+                <i class="ri-shield-check-line"></i>
+                <h3>100% Authentic</h3>
+                <p>All products sourced directly from verified artisans — no middlemen, no compromises.</p>
+            </div>
+            <div class="about-card">
+                <i class="ri-exchange-line"></i>
+                <h3>Easy Returns</h3>
+                <p>Not satisfied? Return within 7 days for a full refund, no questions asked.</p>
+            </div>
+            <div class="about-card">
+                <i class="ri-customer-service-2-line"></i>
+                <h3>24/7 Support</h3>
+                <p>Our team is always ready to help you — via chat, email, or phone, around the clock.</p>
+            </div>
+            <div class="about-card">
+                <i class="ri-scissors-line"></i>
+                <h3>Custom Sizing</h3>
+                <p>Can't find your size? We offer custom tailoring on select products at no extra cost.</p>
+            </div>
+        </div>
+    </div>
+    <div class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">S</div>
+                <h4>Soumya H Melligeri</h4>
+                <span> CEO</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">S</div>
+                <h4>Pratiksha V</h4>
+                <span>Founder</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">R</div>
+                <h4>Sakshi L Kolur</h4>
+                <span>Head of Design</span>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">A</div>
+                <h4>Radhika M Kambar</h4>
+                <span>Customer Experience</span>
+            </div>
+             <div class="team-card">
+                <div class="team-avatar">A</div>
+                <h4>Sanjana Ittannavar</h4>
+                <span>Customer Experience</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════ PAGE: CONTACT ══════════ -->
+<div class="page" id="page-contact">
+    <div class="contact-hero">
+        <h1>Get in Touch</h1>
+        <p>Have a question, feedback, or just want to say hello? We'd love to hear from you.</p>
+    </div>
+    <div class="contact-body">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <div class="contact-info-item">
+                <i class="ri-map-pin-line"></i>
+                <div>
+                    <h4>Our Address</h4>
+                    <p>42, Fashion Street, Koramangala<br>Bengaluru, Karnataka 560034</p>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <i class="ri-phone-line"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 8310993074<br>Mon–Sat, 9 AM – 7 PM</p>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <i class="ri-mail-line"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>support@ecommerce.in<br>We reply within 24 hours</p>
+                </div>
+            </div>
+            <div class="contact-info-item">
+                <i class="ri-instagram-line"></i>
+                <div>
+                    <h4>Instagram</h4>
+                    <p>@ecommerce_fashion<br>DM us anytime!</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h2>Send a Message</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" id="fname" placeholder="Soumya">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lname" placeholder="H Melligeri">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="femail" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+                <label>Phone (optional)</label>
+                <input type="tel" id="fphone" placeholder="+91 8310993074">
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <select id="fsubject">
+                    <option value="">Select a topic…</option>
+                    <option>Order Enquiry</option>
+                    <option>Return / Refund</option>
+                    <option>Product Question</option>
+                    <option>Custom Sizing</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <textarea id="fmessage" placeholder="Tell us how we can help…"></textarea>
+            </div>
+            <button class="btn-submit" onclick="submitForm()">Send Message</button>
+            <div class="form-success" id="form-success">
+                <i class="ri-checkbox-circle-line"></i>
+                Thank you! We'll get back to you within 24 hours.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>Ecommerce</h3>
+            <p>Trendy fashion at your fingertips. Shop the latest styles now.</p>
+        </div>
+        <div class="footer-box">
+            <h4>Quick Links</h4>
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('shop')">Shop</a>
+            <a onclick="showPage('about')">About</a>
+            <a onclick="showPage('contact')">Contact</a>
+        </div>
+        <div class="footer-box">
+            <h4>Categories</h4>
+            <a onclick="showPage('shop')">Lehenga</a>
+            <a onclick="showPage('shop')">Kids Wear</a>
+            <a onclick="showPage('shop')">Party Wear</a>
+            <a onclick="showPage('shop')">Traditional</a>
+        </div>
+        <div class="footer-box">
+            <h4>Follow Us</h4>
+            <div class="social">
+                <i class="ri-facebook-fill"></i>
+                <i class="ri-instagram-line"></i>
+                <i class="ri-twitter-x-line"></i>
+                <i class="ri-youtube-line"></i>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 Ecommerce | All Rights Reserved</div>
+</footer>
+
+<!-- ══════════ CHECKOUT MODAL ══════════ -->
+<div class="checkout-modal">
+    <div class="checkout-box">
+        <h2>Order Summary</h2>
+        <div class="bill-details"></div>
+        <div class="qr-section"><canvas id="qr-code"></canvas></div>
+        <button class="close-checkout">Close</button>
+    </div>
+</div>
+<script src="home2.js"></script>
+</body>
+</html>
